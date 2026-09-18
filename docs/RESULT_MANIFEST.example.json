@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "result_name": "replace-me",
+  "code_commit": "replace-with-git-commit",
+  "command": "replace-with-exact-command",
+  "random_seed": null,
+  "input_sha256": "replace-me-with-private-input-checksum",
+  "preprocessing": {
+    "unit_inventory": [],
+    "inclusions": [],
+    "exclusions": []
+  },
+  "holdout": {
+    "strategy": "replace-me",
+    "training": "replace-me",
+    "test": "replace-me"
+  },
+  "outputs": []
+}
