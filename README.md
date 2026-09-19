@@ -8,11 +8,10 @@ A dependency-free Python toolkit for reproducible structural analysis of
 tokenized historical texts. It was created for an independent Voynich
 Manuscript research program, but every public API is corpus-agnostic.
 
-Researchers often implement token-family graphs in one-off notebooks tied to a
-particular transcription. That makes methods hard to audit, reuse, or compare
-without copying source data. This project separates the general algorithms from
-the corpus: users run the software locally on material they are authorized to
-use and receive deterministic, machine-readable measurements.
+The project separates general algorithms from corpus-specific research so that
+methods can be inspected and reused without distributing the underlying texts.
+Users run the software locally on material they are authorized to use and
+receive deterministic, machine-readable measurements.
 
 ## What it measures
 
@@ -37,7 +36,7 @@ python -m pip install -e .
 printf 'abcd abc abd ab' | vsl-analyze -
 ```
 
-The output records results and the settings needed to interpret them:
+The output records results and the settings needed to interpret them (excerpt):
 
 ```json
 {
@@ -95,9 +94,12 @@ research corpora, private findings, or third-party publications. Users remain
 responsible for lawful access to their inputs.
 
 The [public-release policy](PUBLIC_RELEASE_POLICY.md) explains the boundary.
-CI runs [`scripts/check_public_release.py`](scripts/check_public_release.py) to
-catch common data, archive, credential, and private-workspace files before they
-enter public history.
+Run [`scripts/check_public_release.py`](scripts/check_public_release.py) locally
+before publishing; use `--staged` to scan exact index contents and `--history`
+to scan all commits reachable from `HEAD`, including deleted file versions.
+CI repeats checks after upload. It cannot prevent an upload or remove material
+already exposed in Git history. These checks detect selected hazards, not
+copyright status, ownership, or every possible secret.
 
 The repository's [provenance and rights statement](docs/PROVENANCE_AND_RIGHTS.md)
 records what was created for this release, what is excluded, and how external
@@ -118,11 +120,14 @@ been declared. Releases record schema and behavior changes in the
 [changelog](CHANGELOG.md).
 
 Parts of the code and documentation were developed with OpenAI Codex
-assistance and reviewed, tested, selected, and maintained by Vlad Kirgiz.
+assistance. Vlad Kirgiz is the project maintainer. AI-assisted review and
+automated tests do not constitute legal clearance or certify originality.
 
 ## Citation and license
 
-Citation metadata is available in [CITATION.cff](CITATION.cff). The original
-material committed to this repository is released under the [MIT License](LICENSE).
+Citation metadata is available in [CITATION.cff](CITATION.cff). Repository
+material is offered under the [MIT License](LICENSE) to the extent contributors
+hold the necessary rights. This does not assert copyright over material that
+is not legally protectable or grant rights owned by others.
 No external dataset, transcription, image, publication, or other third-party
 research material is included or relicensed.

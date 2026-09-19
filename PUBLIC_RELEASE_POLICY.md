@@ -40,7 +40,26 @@ Contributors must have the right to submit their work and license it under the r
 
 ## Automated boundary
 
-The public-boundary checker blocks common data, archive, image, credential, notebook, and private-workspace formats; oversized files; and recognizable secret patterns. It reduces accidental disclosure but does not replace human review.
+The public-boundary checker detects selected data, archive, image, credential,
+notebook, and private-workspace formats; oversized files; and recognizable
+secret patterns. It is not a copyright, originality, or license-compliance
+scanner and does not recognize every secret or restricted text.
+
+Run these checks locally before publishing:
+
+```bash
+python scripts/check_public_release.py
+python scripts/check_public_release.py --staged
+python scripts/check_public_release.py --history
+```
+
+The default mode scans tracked working files and untracked non-ignored files.
+The staged mode reads the exact Git index, even if a working copy differs.
+The history mode reads every commit reachable from `HEAD`, including deleted
+file versions and commit messages; it refuses an incomplete shallow history.
+Other branches, unreachable objects, release attachments, issues, logs, and
+external copies require separate review. Ignored untracked files are not scanned.
+CI runs after upload and cannot prevent initial publication or erase history.
 
 Before every public release, the maintainer must review the complete Git diff and confirm that every added line and file is intentionally public.
 
@@ -48,6 +67,11 @@ The release review must also confirm that examples are invented, API names and
 documentation do not reveal private source identities or findings, third-party
 dependencies are declared, and all copyright and attribution statements remain
 accurate. Passing the automated check is necessary but not sufficient.
+
+If restricted content or credentials have already been pushed, a later deletion
+commit does not remove earlier copies. Stop publication, revoke exposed
+credentials where applicable, and arrange a scoped remediation with the
+maintainer. Do not rewrite repository history without explicit authorization.
 
 ## No endorsement; no warranty
 

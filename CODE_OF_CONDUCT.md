@@ -7,5 +7,5 @@ not.
 
 Project maintainers may edit, hide, or remove contributions that violate these
 rules and may restrict participation when necessary. Serious or private
-concerns should be reported through the repository's private security/contact
-channel rather than a public issue.
+concerns should follow the contact guidance in [SECURITY.md](SECURITY.md).
+Do not post sensitive details in a public issue.
