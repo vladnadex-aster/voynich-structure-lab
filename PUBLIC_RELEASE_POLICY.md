@@ -1,6 +1,6 @@
 # Public release policy
 
-Last reviewed: 2026-09-18
+Last reviewed: 2026-09-19
 
 This repository is a deliberately limited public software release. The underlying research project, its sources, working materials, analysis, and results are private unless the maintainer expressly approves a separate public release.
 
@@ -43,6 +43,11 @@ Contributors must have the right to submit their work and license it under the r
 The public-boundary checker blocks common data, archive, image, credential, notebook, and private-workspace formats; oversized files; and recognizable secret patterns. It reduces accidental disclosure but does not replace human review.
 
 Before every public release, the maintainer must review the complete Git diff and confirm that every added line and file is intentionally public.
+
+The release review must also confirm that examples are invented, API names and
+documentation do not reveal private source identities or findings, third-party
+dependencies are declared, and all copyright and attribution statements remain
+accurate. Passing the automated check is necessary but not sufficient.
 
 ## No endorsement; no warranty
 

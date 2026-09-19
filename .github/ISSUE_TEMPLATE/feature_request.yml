@@ -1,0 +1,22 @@
+name: Feature request
+description: Propose a corpus-agnostic analysis capability
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: Describe the general method without attaching private or restricted research data.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What reproducibility or analysis problem would this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Include a small synthetic example when possible.
+    validations:
+      required: true

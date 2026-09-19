@@ -75,10 +75,13 @@ def is_generated(path: Path) -> bool:
     )
 
 
-def tracked_files() -> list[Path]:
+def release_candidate_files() -> list[Path]:
     try:
         output = subprocess.check_output(
-            ["git", "ls-files"], cwd=ROOT, text=True, stderr=subprocess.DEVNULL
+            ["git", "ls-files", "--cached", "--others", "--exclude-standard"],
+            cwd=ROOT,
+            text=True,
+            stderr=subprocess.DEVNULL,
         )
         return [Path(line) for line in output.splitlines() if line]
     except (OSError, subprocess.CalledProcessError):
@@ -87,7 +90,7 @@ def tracked_files() -> list[Path]:
 
 def main() -> int:
     problems: list[str] = []
-    for relative in tracked_files():
+    for relative in release_candidate_files():
         path = ROOT / relative
         if not path.exists() or is_generated(relative):
             continue

@@ -1,0 +1,35 @@
+name: Bug report
+description: Report reproducible incorrect behavior in the public software
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include private, copyrighted, or confidential corpus content.
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      placeholder: 0.2.0
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal synthetic reproduction
+      description: Provide a small invented token set, command, and observed output.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Python version and operating system.
+    validations:
+      required: true

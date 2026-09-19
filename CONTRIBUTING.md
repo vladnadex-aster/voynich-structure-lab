@@ -19,3 +19,15 @@ python scripts/check_public_release.py
 ```
 
 Tests must use synthetic strings created for this repository.
+
+## Before opening a pull request
+
+```bash
+python -m pytest
+python -m ruff check .
+python scripts/check_public_release.py
+```
+
+Explain the general problem, include a minimal synthetic example, and document
+any output-schema or compatibility change in `CHANGELOG.md`. Keep each pull
+request focused enough to review without access to a private corpus.
